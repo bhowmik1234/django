@@ -2,5 +2,15 @@
  {% block title %}Home page{% endblock %}
 
  {% block content %}
- <h1> this is app page</h1>
+ <h1> All names</h1>
+<div class="grid grid-cols-4">
+ {% for name in names  %}
+ <div class="bg-stone-700 m-4 p-5 rounded-md">
+   <img src="{{ name.image.url }}" alt="{{ name.name }}" class="w-[200px] h-[100px]">
+   <h3>{{ name.name }}</h3>
+   <a href="{% url 'desp' name.id %}"> description </a>
+ </div>
+ {% endfor %}
+</div>
  {% endblock %}
+
